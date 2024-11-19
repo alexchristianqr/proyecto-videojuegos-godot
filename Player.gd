@@ -1,11 +1,15 @@
 extends Area2D
 
+signal pickup
+signal hurt
+
 export (int) var speed
 var velocity = Vector2()
 var screenSize = Vector2(440,704)
 
 func _ready():
 	pass # Replace with function body.
+
 
 func _process(delta):
 	get_input()
@@ -19,6 +23,7 @@ func _process(delta):
 		$AnimatedSprite.flip_h = velocity.x > 0
 	else:
 		$AnimatedSprite.animation = "Idle" # Seleccionar imagenes AnimatedSprite > Idle
+
 	
 func get_input():
 	velocity = Vector2()
@@ -40,3 +45,25 @@ func get_input():
 		
 	if(velocity.length() > 0):
 		velocity = velocity.normalized() * speed
+
+func start(pos):
+	set_process(true)
+	position = pos
+	$AnimatedSprite.animation = "Idle"
+
+
+func die():
+	$AnimatedSprite.animation = "Hurt"
+	set_process(false)
+
+
+func _on_Player_area_entered(area):
+	
+	if(area.is_in_group("apples")):
+		area.pickup()
+		
+	if(area.is_in_group("enemy")):
+		emit_signal("hurt")
+		die()
+		
+	pass

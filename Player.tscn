@@ -13,6 +13,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Hurt",
@@ -22,27 +27,24 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "Run",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 84.2414
-height = 148.942
+radius = 56.6658
+height = 52.7717
 
 [node name="Player" type="Area2D"]
 script = ExtResource( 1 )
 speed = 120
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 3, 50 )
+position = Vector2( 0.171645, 14.2911 )
+scale = Vector2( 0.541794, 0.663412 )
 frames = SubResource( 1 )
 animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -14.8492, 54.4472 )
+position = Vector2( -8.48526, 12.0206 )
 shape = SubResource( 2 )
+[connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]

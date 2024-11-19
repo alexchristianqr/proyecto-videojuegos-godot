@@ -1,0 +1,33 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/apple red/red-2.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/apple red/red-5.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/apple red/red-4.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/apple red/red-3.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/apple red/red-1.png" type="Texture" id=5]
+[ext_resource path="res://Apple.gd" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 26.3796
+
+[node name="Apple" type="Area2D"]
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2.12132, -1.06065 )
+scale = Vector2( 0.225009, 0.239151 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.8284, 1.41422 )
+shape = SubResource( 2 )
