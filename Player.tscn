@@ -1,0 +1,48 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/player/hurt/hurt-2.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/player/hurt/hurt-1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/player/idle/idle-2.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player/idle/idle-1.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/player/running/run-3.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/player/running/run-4.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/player/running/run-5.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/player/running/run-1.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/player/running/run-2.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 84.2414
+height = 148.942
+
+[node name="Player" type="Area2D"]
+script = ExtResource( 1 )
+speed = 120
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 3, 50 )
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -14.8492, 54.4472 )
+shape = SubResource( 2 )
