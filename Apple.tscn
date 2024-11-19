@@ -9,25 +9,27 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 26.3796
+radius = 8.42937
 
-[node name="Apple" type="Area2D"]
+[node name="Apple" type="Area2D" groups=[
+"apples",
+]]
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -2.12132, -1.06065 )
-scale = Vector2( 0.225009, 0.239151 )
+position = Vector2( 7.87868, 6.93935 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2.8284, 1.41422 )
+position = Vector2( 8.41763, 9.25193 )
 shape = SubResource( 2 )

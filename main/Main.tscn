@@ -28,4 +28,4 @@ position = Vector2( 218.132, 326.91 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 17.7097, 33.2511 )
+position = Vector2( 567.71, 289.251 )

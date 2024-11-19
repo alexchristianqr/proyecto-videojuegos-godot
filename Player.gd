@@ -4,6 +4,7 @@ signal pickup
 signal hurt
 
 export (int) var speed
+
 var velocity = Vector2()
 var screenSize = Vector2(440,704)
 
